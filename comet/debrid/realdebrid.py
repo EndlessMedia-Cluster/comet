@@ -71,7 +71,10 @@ class RealDebrid:
 
         if type == "series":
             for hash, details in availability.items():
-                if "rd" not in details:
+                if not isinstance(details, dict):
+                    continue
+
+                elif "rd" not in details:
                     continue
 
                 for variants in details["rd"]:
@@ -104,7 +107,10 @@ class RealDebrid:
                         break
         else:
             for hash, details in availability.items():
-                if "rd" not in details:
+                if not isinstance(details, dict):
+                    continue
+
+                elif "rd" not in details:
                     continue
 
                 for variants in details["rd"]:
